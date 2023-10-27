@@ -103,7 +103,7 @@ class PDFController extends Controller
             'type'          => $request->type
         ];
 
-        $pdf = PDF::loadView('pdf.check', $data)->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('pdf.check', $data);
         // dom PDF preview in browser
         return $pdf->stream($filename);
     }

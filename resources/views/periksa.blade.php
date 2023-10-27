@@ -40,6 +40,8 @@
                                     <th data-options='field:"berat", sortable:true' width="10%">Berat Badan</th>
                                     <th data-options='field:"suhu", sortable:true' width="10%">Suhu Tubuh</th>
                                     <th data-options='field:"tekanan", sortable:true' width="10%">Tekanan Darah</th>
+                                    <th data-options='field:"asam_urat", sortable:true' width="10%">Asam Urat</th>
+                                    <th data-options='field:"kolesterol", sortable:true' width="10%">Kolesterol</th>
                                     <th data-options='field:"hasil", sortable:true' width="20%">Hasil Pemeriksaan Dasar
                                     </th>
                                     <th data-options='field:"description", sortable:true' width="20%">Pemeriksaan Fisik
@@ -76,7 +78,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
                             <div class="mb-1 div-error" style="display: none">
                                 <div class="alert alert-danger d-flex align-items-center" role="alert">
                                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
@@ -89,116 +90,143 @@
 
                             @csrf
 
-                            <div class="row">
-                                <h5 class="modal-title text-bold"><b>DATA PEMERIKSAAN</b></h5>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Nama Pegawai*</label>
-                                        <select class="form-control" name="employee_id" id="employee_id" required>
-                                            <option value="">Pilih Pegawai</option>
-                                            @foreach ($employee as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
+                            <div class="border mb-3 p-3">
+                                <h5 class="modal-title text-bold"><b>DATA PEGAWAI</b></h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Nama Pegawai*</label>
+                                            <select class="form-control" name="employee_id" id="employee_id" required>
+                                                <option value="">Pilih Pegawai</option>
+                                                @foreach ($employee as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Nama Dokter*</label>
-                                        <select class="form-control" name="doctor_id" id="doctor_id" required>
-                                            <option value="">Pilih Dokter</option>
-                                            @foreach ($doctor as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Nama Dokter*</label>
+                                            <select class="form-control" name="doctor_id" id="doctor_id" required>
+                                                <option value="">Pilih Dokter</option>
+                                                @foreach ($doctor as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Jenis Periksa*</label>
-                                        <select class="form-control" name="check_type" id="check_type" required>
-                                            <option value="">Pilih Jenis Periksa</option>
-                                            <option value="Periksa">Periksa</option>
-                                            <option value="Non Periksa">Non Periksa</option>
-                                        </select>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Jenis Periksa*</label>
+                                            <select class="form-control" name="check_type" id="check_type" required>
+                                                <option value="">Pilih Jenis Periksa</option>
+                                                <option value="Periksa">Periksa</option>
+                                                <option value="Non Periksa">Non Periksa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Tanggal Periksa*</label>
+                                            <input id="date" class="form-control" type="date" name="date"
+                                                required>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Tanggal Periksa*</label>
-                                        <input id="date" class="form-control" type="date" name="date"
-                                            required>
-                                    </div>
-                                </div>
+                            </div>
 
+                            <div class="border mb-3 p-3">
                                 <h5 class="modal-title text-bold"><b>PEMERIKSAAN DASAR</b></h5>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Tinggi Badan*</label>
-                                        <input id="tinggi" class="form-control" type="input" name="tinggi"
-                                            required>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Tinggi Badan*</label>
+                                            <input id="tinggi" class="form-control" type="input" name="tinggi"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Berat Badan*</label>
+                                            <input id="berat" class="form-control" type="input" name="berat"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Suhu Badan*</label>
+                                            <input id="suhu" class="form-control" type="input" name="suhu"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Tekanan Darah*</label>
+                                            <input id="tekanan" class="form-control" type="input" name="tekanan"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Asam Urat*</label>
+                                            <input id="asam_urat" class="form-control" type="input" name="asam_urat"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Kolesterol*</label>
+                                            <input id="kolesterol" class="form-control" type="input" name="kolesterol"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Hasil Pemeriksaan Dasar*</label>
+                                            <input id="hasil" class="form-control" type="input" name="hasil"
+                                                required>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Berat Badan*</label>
-                                        <input id="berat" class="form-control" type="input" name="berat"
-                                            required>
+                            <div class="border mb-3 p-3">
+                                <h5 class="modal-title text-bold"><b>PEMERIKSAAN LANJUTAN</b></h5>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Pemeriksaan Fisik</label>
+                                            <textarea id="description" class="form-control" name="description"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Suhu Badan*</label>
-                                        <input id="suhu" class="form-control" type="input" name="suhu"
-                                            required>
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Diagnosis</label>
+                                            <textarea id="diagnosis" class="form-control" name="diagnosis"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Tekanan Darah*</label>
-                                        <input id="tekanan" class="form-control" type="input" name="tekanan"
-                                            required>
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Terapi</label>
+                                            <textarea id="therapy" class="form-control" name="therapy"></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Hasil Pemeriksaan Dasar*</label>
-                                        <input id="hasil" class="form-control" type="input" name="hasil"
-                                            required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Pemeriksaan Fisik</label>
-                                        <textarea id="description" class="form-control" name="description"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Diagnosis</label>
-                                        <textarea id="diagnosis" class="form-control" name="diagnosis"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Terapi</label>
-                                        <textarea id="therapy" class="form-control" name="therapy"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Tanggal Periksa Selanjutnya*</label>
-                                        <input id="nextdate" class="form-control" type="date" name="nextdate"
-                                            required>
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Tanggal Periksa Selanjutnya*</label>
+                                            <input id="nextdate" class="form-control" type="date" name="nextdate"
+                                                required>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -238,119 +266,145 @@
 
                             @csrf
 
-                            <div class="row">
-                                <h5 class="modal-title text-bold"><b>DATA PEMERIKSAAN</b></h5>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Nama Pegawai*</label>
-                                        <select class="form-control" name="employee_id" id="employee_id" required>
-                                            <option value="">Pilih Pegawai</option>
-                                            @foreach ($employee as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
+                            <div class="border mb-3 p-3">
+                                <h5 class="modal-title text-bold"><b>DATA PEGAWAI</b></h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Nama Pegawai*</label>
+                                            <select class="form-control" name="employee_id" id="employee_id" required>
+                                                <option value="">Pilih Pegawai</option>
+                                                @foreach ($employee as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Nama Dokter*</label>
-                                        <select class="form-control" name="doctor_id" id="doctor_id" required>
-                                            <option value="">Pilih Dokter</option>
-                                            @foreach ($doctor as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Nama Dokter*</label>
+                                            <select class="form-control" name="doctor_id" id="doctor_id" required>
+                                                <option value="">Pilih Dokter</option>
+                                                @foreach ($doctor as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Jenis Periksa*</label>
-                                        <select class="form-control" name="check_type" id="check_type" required>
-                                            <option value="">Pilih Jenis Periksa</option>
-                                            <option value="Periksa">Periksa</option>
-                                            <option value="Non Periksa">Non Periksa</option>
-                                        </select>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Jenis Periksa*</label>
+                                            <select class="form-control" name="check_type" id="check_type" required>
+                                                <option value="">Pilih Jenis Periksa</option>
+                                                <option value="Periksa">Periksa</option>
+                                                <option value="Non Periksa">Non Periksa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Tanggal Periksa*</label>
+                                            <input id="date" class="form-control" type="date" name="date"
+                                                required>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Tanggal Periksa*</label>
-                                        <input id="date" class="form-control" type="date" name="date"
-                                            required>
-                                    </div>
-                                </div>
+                            </div>
 
+                            <div class="border mb-3 p-3">
                                 <h5 class="modal-title text-bold"><b>PEMERIKSAAN DASAR</b></h5>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Tinggi Badan*</label>
-                                        <input id="tinggi" class="form-control" type="input" name="tinggi"
-                                            required>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Tinggi Badan*</label>
+                                            <input id="tinggi" class="form-control" type="input" name="tinggi"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Berat Badan*</label>
+                                            <input id="berat" class="form-control" type="input" name="berat"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Suhu Badan*</label>
+                                            <input id="suhu" class="form-control" type="input" name="suhu"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Tekanan Darah*</label>
+                                            <input id="tekanan" class="form-control" type="input" name="tekanan"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Asam Urat*</label>
+                                            <input id="asam_urat" class="form-control" type="input" name="asam_urat"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="">Kolesterol*</label>
+                                            <input id="kolesterol" class="form-control" type="input" name="kolesterol"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Hasil Pemeriksaan Dasar*</label>
+                                            <input id="hasil" class="form-control" type="input" name="hasil"
+                                                required>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Berat Badan*</label>
-                                        <input id="berat" class="form-control" type="input" name="berat"
-                                            required>
+                            <div class="border mb-3 p-3">
+                                <h5 class="modal-title text-bold"><b>PEMERIKSAAN LANJUTAN</b></h5>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Pemeriksaan Fisik</label>
+                                            <textarea id="description" class="form-control" name="description"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Diagnosis</label>
+                                            <textarea id="diagnosis" class="form-control" name="diagnosis"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Terapi</label>
+                                            <textarea id="therapy" class="form-control" name="therapy"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="">Tanggal Periksa Selanjutnya*</label>
+                                            <input id="nextdate" class="form-control" type="date" name="nextdate"
+                                                required>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Suhu Badan*</label>
-                                        <input id="suhu" class="form-control" type="input" name="suhu"
-                                            required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="">Tekanan Darah*</label>
-                                        <input id="tekanan" class="form-control" type="input" name="tekanan"
-                                            required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Hasil Pemeriksaan Dasar*</label>
-                                        <input id="hasil" class="form-control" type="input" name="hasil"
-                                            required>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Pemeriksaan Fisik</label>
-                                        <textarea id="description" class="form-control" name="description"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Diagnosis</label>
-                                        <textarea id="diagnosis" class="form-control" name="diagnosis"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Terapi</label>
-                                        <textarea id="therapy" class="form-control" name="therapy"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="mb-3">
-                                        <label for="">Tanggal Periksa Selanjutnya*</label>
-                                        <input id="nextdate" class="form-control" type="date" name="nextdate"
-                                            required>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -447,6 +501,14 @@
                     },
                     {
                         field: 'tekanan',
+                        type: 'textbox'
+                    },
+                    {
+                        field: 'asam_urat',
+                        type: 'textbox'
+                    },
+                    {
+                        field: 'kolesterol',
                         type: 'textbox'
                     },
                     {
@@ -550,6 +612,8 @@
                         modal.find('#berat').val(response.berat);
                         modal.find('#suhu').val(response.suhu);
                         modal.find('#tekanan').val(response.tekanan);
+                        modal.find('#asam_urat').val(response.asam_urat);
+                        modal.find('#kolesterol').val(response.kolesterol);
                         modal.find('#hasil').val(response.hasil);
                         modal.find('#description').val(response.description);
                         modal.find('#diagnosis').val(response.diagnosis);

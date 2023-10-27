@@ -26,6 +26,8 @@ class CheckController extends Controller
             'berat'             => 'required',
             'suhu'              => 'required',
             'tekanan'           => 'required',
+            'asam_urat'         => 'required',
+            'kolesterol'        => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -56,6 +58,8 @@ class CheckController extends Controller
         $check->berat           = $request->berat;
         $check->suhu            = $request->suhu;
         $check->tekanan         = $request->tekanan;
+        $check->asam_urat       = $request->asam_urat;
+        $check->kolesterol      = $request->kolesterol;
         $check->hasil           = $request->hasil;
         $check->description     = $request->description;
         $check->diagnosis       = $request->diagnosis;
@@ -145,6 +149,8 @@ class CheckController extends Controller
             'berat'             => 'required',
             'suhu'              => 'required',
             'tekanan'           => 'required',
+            'asam_urat'         => 'required',
+            'kolesterol'        => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -164,6 +170,8 @@ class CheckController extends Controller
         $check->berat           = $request->berat;
         $check->suhu            = $request->suhu;
         $check->tekanan         = $request->tekanan;
+        $check->asam_urat       = $request->asam_urat;
+        $check->kolesterol      = $request->kolesterol;
         $check->hasil           = $request->hasil;
         $check->description     = $request->description;
         $check->diagnosis       = $request->diagnosis;
