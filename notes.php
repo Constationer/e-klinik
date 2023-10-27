@@ -1,0 +1,6 @@
+- master user OKE
+-- proses insert OKE
+-- proses update OKE
+- logs perubahan master  OKE
+- warna OKE
+- button hanya utk admin
