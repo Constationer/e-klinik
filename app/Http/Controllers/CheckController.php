@@ -22,12 +22,12 @@ class CheckController extends Controller
             'doctor_id'         => 'required',
             'check_type'        => 'required',
             'date'              => 'required',
-            'tinggi'            => 'required',
-            'berat'             => 'required',
-            'suhu'              => 'required',
+            'tinggi'            => 'required|numeric',
+            'berat'             => 'required|numeric',
+            'suhu'              => 'required|numeric',
             'tekanan'           => 'required',
-            'asam_urat'         => 'required',
-            'kolesterol'        => 'required',
+            'asam_urat'         => 'required|numeric',
+            'kolesterol'        => 'required|numeric',
         ]);
 
         if ($validator->fails()) {
@@ -145,12 +145,12 @@ class CheckController extends Controller
             'doctor_id'         => 'required',
             'check_type'        => 'required',
             'date'              => 'required',
-            'tinggi'            => 'required',
-            'berat'             => 'required',
-            'suhu'              => 'required',
+            'tinggi'            => 'required|numeric',
+            'berat'             => 'required|numeric',
+            'suhu'              => 'required|numeric',
             'tekanan'           => 'required',
-            'asam_urat'         => 'required',
-            'kolesterol'        => 'required',
+            'asam_urat'         => 'required|numeric',
+            'kolesterol'        => 'required|numeric',
         ]);
 
         if ($validator->fails()) {

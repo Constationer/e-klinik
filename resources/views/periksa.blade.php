@@ -36,9 +36,9 @@
                             </thead>
                             <thead>
                                 <tr>
-                                    <th data-options='field:"tinggi", sortable:true' width="10%">Tinggi Badan</th>
-                                    <th data-options='field:"berat", sortable:true' width="10%">Berat Badan</th>
-                                    <th data-options='field:"suhu", sortable:true' width="10%">Suhu Tubuh</th>
+                                    <th data-options='field:"tinggi", sortable:true' width="10%">Tinggi Badan(cm)</th>
+                                    <th data-options='field:"berat", sortable:true' width="10%">Berat Badan(kg)</th>
+                                    <th data-options='field:"suhu", sortable:true' width="10%">Suhu Tubuh(c)</th>
                                     <th data-options='field:"tekanan", sortable:true' width="10%">Tekanan Darah</th>
                                     <th data-options='field:"asam_urat", sortable:true' width="10%">Asam Urat</th>
                                     <th data-options='field:"kolesterol", sortable:true' width="10%">Kolesterol</th>
@@ -141,7 +141,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Tinggi Badan*</label>
+                                            <label for="">Tinggi Badan*(cm)</label>
                                             <input id="tinggi" class="form-control" type="input" name="tinggi"
                                                 required>
                                         </div>
@@ -149,7 +149,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Berat Badan*</label>
+                                            <label for="">Berat Badan*(kg)</label>
                                             <input id="berat" class="form-control" type="input" name="berat"
                                                 required>
                                         </div>
@@ -157,7 +157,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Suhu Badan*</label>
+                                            <label for="">Suhu Badan*(c)</label>
                                             <input id="suhu" class="form-control" type="input" name="suhu"
                                                 required>
                                         </div>
@@ -165,7 +165,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Tekanan Darah*</label>
+                                            <label for="">Tekanan Darah*(mmHg)</label>
                                             <input id="tekanan" class="form-control" type="input" name="tekanan"
                                                 required>
                                         </div>
@@ -173,7 +173,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Asam Urat*</label>
+                                            <label for="">Asam Urat*((mg/dL))</label>
                                             <input id="asam_urat" class="form-control" type="input" name="asam_urat"
                                                 required>
                                         </div>
@@ -317,7 +317,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Tinggi Badan*</label>
+                                            <label for="">Tinggi Badan*(cm)</label>
                                             <input id="tinggi" class="form-control" type="input" name="tinggi"
                                                 required>
                                         </div>
@@ -325,7 +325,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Berat Badan*</label>
+                                            <label for="">Berat Badan*(kg)</label>
                                             <input id="berat" class="form-control" type="input" name="berat"
                                                 required>
                                         </div>
@@ -333,7 +333,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Suhu Badan*</label>
+                                            <label for="">Suhu Badan*(c)</label>
                                             <input id="suhu" class="form-control" type="input" name="suhu"
                                                 required>
                                         </div>
@@ -341,7 +341,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Tekanan Darah*</label>
+                                            <label for="">Tekanan Darah*(mmHg)</label>
                                             <input id="tekanan" class="form-control" type="input" name="tekanan"
                                                 required>
                                         </div>
@@ -349,7 +349,7 @@
 
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Asam Urat*</label>
+                                            <label for="">Asam Urat*(mg/dL)</label>
                                             <input id="asam_urat" class="form-control" type="input" name="asam_urat"
                                                 required>
                                         </div>

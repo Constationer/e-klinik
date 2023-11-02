@@ -125,7 +125,131 @@ Route::controller(DashboardController::class)->group(function () {
             'total_pegawai' => Employee::where('status', 1)->count(),
             'total_expired' => Medicine::minimum_expired_date(),
             'total_minimum' => Medicine::minimum_stock(),
-            'activity'      => Logs::list_logs(10)
+            'activity'      => Logs::list_logs(10),
+            'data_bb' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->whereRaw('checks.berat > (checks.Tinggi - 100)')
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->get(),
+            'data_suhu' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->where('checks.suhu', '>', 37.5)
+                        ->orWhere('checks.suhu', '<', 36.5);
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->get(),
+            'data_kolesterol' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->where('checks.kolesterol', '>', 239)
+                        ->orWhere('checks.kolesterol', '<', 200);
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->get(),
+            'data_asamurat' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->where('checks.asam_urat', '>', 6.0)
+                        ->orWhere('checks.asam_urat', '<', 2.4);
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->get(),
+            'data_tekanan' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->whereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) > 120")
+                        ->orWhereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) < 90");
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->get(),
+            'data1' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->whereRaw('checks.berat > (checks.Tinggi - 100)')
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->count(),
+            'data2' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->where('checks.suhu', '>', 37.5)
+                        ->orWhere('checks.suhu', '<', 36.5);
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->count(),
+            'data3' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->where('checks.kolesterol', '>', 239)
+                        ->orWhere('checks.kolesterol', '<', 200);
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->count(),
+            'data4' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->where('checks.asam_urat', '>', 6.0)
+                        ->orWhere('checks.asam_urat', '<', 2.4);
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->count(),
+            'data5' => Check::select('checks.*', 'employees.name as employee_name')
+                ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->where('checks.check_type', 'Periksa')
+                ->where(function ($query) {
+                    $query->whereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) > 120")
+                        ->orWhereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) < 90");
+                })
+                ->whereIn('checks.created_at', function ($query) {
+                    $query->selectRaw('MAX(created_at)')
+                        ->from('checks')
+                        ->whereColumn('checks.employee_id', 'checks.employee_id');
+                })
+                ->count(),
         ]);
     })->middleware('auth')->name('dashboard');
 });
