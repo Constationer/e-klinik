@@ -348,7 +348,7 @@
   border-width: 0 0 1px;
 }
 .accordion-collapse {
-  background: url('images/accordion_arrows.png') no-repeat 0 0;
+  background:
 }
 .accordion-expand {
   background: url('images/accordion_arrows.png') no-repeat -16px 0;

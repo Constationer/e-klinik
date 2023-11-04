@@ -95,7 +95,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="">Nama Pegawai*</label>
+                                            <label for="">Nama Pegawai*</label><br>
                                             <select class="form-control" name="employee_id" id="employee_id" required>
                                                 <option value="">Pilih Pegawai</option>
                                                 @foreach ($employee as $item)
@@ -668,4 +668,42 @@
             }
         </script>
 
+        @push('script')
+            <style>
+                /* Smaller height, padding, and font size */
+                .select2-container--default .select2-selection--single {
+                    height: 34px !important;
+                    padding: 6px 6px;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    border-radius: 4px;
+                    border: 1px solid #ccc;
+                }
+
+                /* Adjust the arrow position */
+                .select2-container--default .select2-selection--single .select2-selection__arrow b {
+                    top: 40% !important;
+                }
+
+                /* Adjust the line height of the rendered value */
+                .select2-container--default .select2-selection--single .select2-selection__rendered {
+                    line-height: 20px !important;
+                }
+
+                /* Adjust focus border */
+                .select2-container--default.select2-container--focus .select2-selection--single {
+                    border-color: #007bff;
+                }
+            </style>
+
+            <script>
+                $(function() {
+                    $('#employee_id').select2({
+                        dropdownParent: $('#modal_add'),
+                        dropdownAutoWidth: true,
+                        width: "100%"
+                    });
+                });
+            </script>
+        @endpush
     @endsection

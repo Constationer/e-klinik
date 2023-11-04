@@ -41,18 +41,13 @@
     <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
 
     <!-- js file source from online -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    {{-- select2 --}}<!-- Include Select2 CSS from CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
-
-    <!-- Include Select2 JS from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
 
     {{-- datagrid --}}
@@ -93,18 +88,13 @@
     <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="/assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
 
 
-
     <script>
-        $(document).ready(function() {
-            $('#mySelect').select2();
-        });
-
-
         function delete_alert() {
 
             if (confirm("Apakah yakin hapus data ini?")) {

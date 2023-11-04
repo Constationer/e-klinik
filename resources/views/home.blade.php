@@ -145,7 +145,7 @@
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="acoordion-body px-3 my-3">
-                                        <table id="example1" class="table display table-bordered">
+                                        <table id="example1" class="table display table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -179,7 +179,7 @@
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="acoordion-body px-3">
-                                        <table id="example2" class="table display table-bordered">
+                                        <table id="example2" class="table display table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -213,7 +213,7 @@
                                 <div id="flush-collapseThree" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="acoordion-body px-3">
-                                        <table id="example3" class="table display table-bordered">
+                                        <table id="example3" class="table display table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -247,7 +247,7 @@
                                 <div id="flush-collapseFour" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body px-3 my-2">
-                                        <table id="example4" class="table display table-bordered">
+                                        <table id="example4" class="table display table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>

@@ -56,6 +56,10 @@ Route::get('/clear-cache', function () {
     // return what you want
 });
 
+Route::get('/tester', function () {
+    return view('tester');
+});
+
 
 // LOGIN & LOGOUT ============================================
 // Route::get('/', function () {
@@ -140,7 +144,7 @@ Route::controller(DashboardController::class)->group(function () {
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
                     $query->where('checks.suhu', '>', 37.5);
-                        // ->orWhere('checks.suhu', '<', 36.5);
+                    // ->orWhere('checks.suhu', '<', 36.5);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
@@ -152,7 +156,7 @@ Route::controller(DashboardController::class)->group(function () {
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
                     $query->where('checks.kolesterol', '>', 239);
-                        // ->orWhere('checks.kolesterol', '<', 200);
+                    // ->orWhere('checks.kolesterol', '<', 200);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
@@ -197,7 +201,7 @@ Route::controller(DashboardController::class)->group(function () {
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
                     $query->where('checks.suhu', '>', 37.5);
-                        // ->orWhere('checks.suhu', '<', 36.5);
+                    // ->orWhere('checks.suhu', '<', 36.5);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
@@ -209,7 +213,7 @@ Route::controller(DashboardController::class)->group(function () {
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
                     $query->where('checks.kolesterol', '>', 239);
-                        // ->orWhere('checks.kolesterol', '<', 200);
+                    // ->orWhere('checks.kolesterol', '<', 200);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
