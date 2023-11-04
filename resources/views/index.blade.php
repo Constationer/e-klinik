@@ -48,9 +48,12 @@
     <!-- js file source from online -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    {{-- select2 --}}
-    <link rel="stylesheet" href="/assets/vendor/select2/dist/css/select2.css">
-    <script src="/assets/vendor/select2/dist/js/select2.full.min.js"></script>
+    {{-- select2 --}}<!-- Include Select2 CSS from CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+
+    <!-- Include Select2 JS from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 
     {{-- datagrid --}}
     <link href="/assets/eui/css/easyui.css" rel="stylesheet">
@@ -98,9 +101,7 @@
 
     <script>
         $(document).ready(function() {
-            // $('.select2').select2(
-            // 	{ dropdownParent: "#modal_add" }
-            // );
+            $('#mySelect').select2();
         });
 
 

@@ -139,14 +139,11 @@
                                         <label for="">Agama*</label>
                                         <select name="religion" id="religion" class="form-control" required>
                                             <option value="">-- Pilih Agama --</option>
-                                            @php
-                                                $enum_religion = \App\Helper\General::get_enum_values('employees', 'religion');
-
-                                                foreach ($enum_religion as $religion) {
-                                                    echo '<option value="' . $religion . '">' . $religion . '</option>';
-                                                }
-
-                                            @endphp
+                                            <option value="Islam">Islam</option>
+                                            <option value="Katholik">Katholik</option>
+                                            <option value="Protestan">Protestan</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Budha">Budha</option>
                                         </select>
                                     </div>
                                 </div>
@@ -356,14 +353,11 @@
                                         <label for="">Agama*</label>
                                         <select name="religion" id="religion" class="form-control" required>
                                             <option value="">-- Pilih Agama --</option>
-                                            @php
-                                                $enum_religion = \App\Helper\General::get_enum_values('employees', 'religion');
-
-                                                foreach ($enum_religion as $religion) {
-                                                    echo '<option value="' . $religion . '">' . $religion . '</option>';
-                                                }
-
-                                            @endphp
+                                            <option value="Islam">Islam</option>
+                                            <option value="Katholik">Katholik</option>
+                                            <option value="Protestan">Protestan</option>
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Budha">Budha</option>
                                         </select>
                                     </div>
                                 </div>

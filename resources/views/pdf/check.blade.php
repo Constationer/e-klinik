@@ -2,6 +2,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> {{ $title }}</title>
+    <style>
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            /* Adjust the distance from the bottom as needed */
+            right: 10mm;
+            /* Adjust the distance from the right as needed */
+            text-align: right;
+        }
+    </style>
 </head>
 
 @if ($type === 'check')
@@ -185,6 +195,9 @@
             <td><b>Terapi</b>: <br>{{ $check->therapy }}</td>
         </tr>
     </table>
+    <div class="footer">
+        Page 1 of 1
+    </div>
 @else
     @foreach ($check as $key => $detail)
         <table border="0">
@@ -367,6 +380,11 @@
                 <td><b>Terapi</b>: <br>{{ $detail->therapy }}</td>
             </tr>
         </table>
-        <div style="page-break-before: always;"></div>
+        <div class="footer">
+            Page {{ $loop->iteration }} of {{ $loop->count }}
+        </div>
+        @if (!$loop->last)
+            <div style="page-break-before: always;"></div>
+        @endif
     @endforeach
 @endif

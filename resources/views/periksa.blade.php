@@ -223,9 +223,8 @@
 
                                     <div class="col-lg-12">
                                         <div class="mb-3">
-                                            <label for="">Tanggal Periksa Selanjutnya*</label>
-                                            <input id="nextdate" class="form-control" type="date" name="nextdate"
-                                                required>
+                                            <label for="">Tanggal Periksa Selanjutnya</label>
+                                            <input id="nextdate" class="form-control" type="date" name="nextdate">
                                         </div>
                                     </div>
                                 </div>
@@ -400,8 +399,7 @@
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="">Tanggal Periksa Selanjutnya*</label>
-                                            <input id="nextdate" class="form-control" type="date" name="nextdate"
-                                                required>
+                                            <input id="nextdate" class="form-control" type="date" name="nextdate">
                                         </div>
                                     </div>
                                 </div>

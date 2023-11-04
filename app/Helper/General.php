@@ -37,7 +37,7 @@ class General {
     }
 
     public static function blood_type() {
-        return array('O-','O+','A-','A+','B-','B+','AB-','AB+');
+        return array('O','A','B','AB');
     }
 
 }

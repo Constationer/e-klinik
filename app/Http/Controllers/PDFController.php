@@ -104,6 +104,7 @@ class PDFController extends Controller
         ];
 
         $pdf = PDF::loadView('pdf.check', $data);
+
         // dom PDF preview in browser
         return $pdf->stream($filename);
     }

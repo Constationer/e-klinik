@@ -38,7 +38,6 @@ class EmployeeController extends Controller
             'data_parent'       => 'required',
             'nip'               => [
                 'required',
-                'unique:employees,nip'
             ],
             'place_of_birth'    => 'required',
             'date_of_birth'     => 'required|date_format:Y-m-d',
@@ -223,7 +222,6 @@ class EmployeeController extends Controller
             'data_parent'       => 'required',
             'nip'               => [
                 'required',
-                'unique:employees,nip,' . $request->id . ',id,status,1'
             ],
             'name'              => 'required',
             'place_of_birth'    => 'required',

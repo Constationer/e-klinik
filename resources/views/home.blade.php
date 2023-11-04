@@ -112,7 +112,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Statistik Penyakit</h5>
+                        <h5 class="card-title">Statistik Kesehatan Pegawai</h5>
                         <div class="chart-container"
                             style="display: flex;
 						justify-content: center;
@@ -135,17 +135,17 @@
                         </h5>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button btn btn-primary collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                <h2 class="accordion-header px-3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
                                         aria-controls="flush-collapseOne">
                                         Berat Badan Tidak Ideal
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <table class="table table-bordered">
+                                    <div class="acoordion-body px-3 my-3">
+                                        <table id="example1" class="table display table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header">
+                                <h2 class="acoordion-header px-3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                         aria-controls="flush-collapseTwo">
@@ -178,8 +178,8 @@
                                 </h2>
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <table class="table table-bordered">
+                                    <div class="acoordion-body px-3">
+                                        <table id="example2" class="table display table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -203,7 +203,7 @@
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header">
+                                <h2 class="acoordion-header px-3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseThree" aria-expanded="false"
                                         aria-controls="flush-collapseThree">
@@ -212,8 +212,8 @@
                                 </h2>
                                 <div id="flush-collapseThree" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <table class="table table-bordered">
+                                    <div class="acoordion-body px-3">
+                                        <table id="example3" class="table display table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -237,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header">
+                                <h2 class="acoordion-header px-3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseFour" aria-expanded="false"
                                         aria-controls="flush-collapseFour">
@@ -246,8 +246,8 @@
                                 </h2>
                                 <div id="flush-collapseFour" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <table class="table table-bordered">
+                                    <div class="accordion-body px-3 my-2">
+                                        <table id="example4" class="table display table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -257,7 +257,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data_suhu as $key)
+                                                @foreach ($data_kolesterol as $key)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $key->employee_name }}</td>
@@ -271,7 +271,7 @@
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <h2 class="accordion-header">
+                                <h2 class="acoordion-header px-3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseFive" aria-expanded="false"
                                         aria-controls="flush-collapseFive">
@@ -280,8 +280,8 @@
                                 </h2>
                                 <div id="flush-collapseFive" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <table class="table bordered">
+                                    <div class="acoordion-body px-3">
+                                        <table id="example5" class="table display bordered">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -368,6 +368,18 @@
 
 
             @push('script')
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+                <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#example1').DataTable();
+                        $('#example2').DataTable();
+                        $('#example3').DataTable();
+                        $('#example4').DataTable();
+                        $('#example5').DataTable();
+                    });
+                </script>
                 <script>
                     var ctx = document.getElementById('myPieChart').getContext('2d');
 
@@ -380,6 +392,7 @@
                     var data = {
                         labels: ['Berat Badan', 'Suhu Tubuh', 'Asam Urat', 'Kolesterol', 'Tekanan Darah'],
                         datasets: [{
+                            barPercentage: 0.9,
                             data: [data1, data2, data3, data4, data5],
                             backgroundColor: [
                                 'red',
@@ -395,8 +408,8 @@
                         type: 'pie',
                         data: data,
                         options: {
-                            responsive: true, // Prevent chart from resizing to fit container
-                            maintainAspectRatio: false // Keep the specified width and height
+                            responsive: false, // Prevent chart from resizing to fit container
+                            maintainAspectRatio: true // Keep the specified width and height
                         }
                     });
                 </script>
