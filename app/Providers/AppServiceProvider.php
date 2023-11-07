@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-\Illuminate\Support\Facades\URL::forceScheme('http');
+\Illuminate\Support\Facades\URL::forceScheme('https');
 
 class AppServiceProvider extends ServiceProvider
 {
