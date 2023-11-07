@@ -131,7 +131,7 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <h5 class="card-title">Data Pegawai Sakit
+                        <h5 class="card-title">Data Pegawai Kurang Sehat
                         </h5>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
@@ -291,7 +291,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($data_asamurat as $key)
+                                                @foreach ($data_tekanan as $key)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $key->employee_name }}</td>

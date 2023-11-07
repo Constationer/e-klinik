@@ -90,8 +90,8 @@
 						<hr/>
 						
 						<div class="mb-3">
-							<label for="">No. Invoice Pembelian*</label>
-							<input id="invoice_number" class="form-control" type="text" name="invoice_number" required>
+							<label for="">No. Invoice Pembelian</label>
+							<input id="invoice_number" class="form-control" type="text" name="invoice_number">
 						</div>
 						<div class="mb-3">
 							<label for="">Tanggal Pembelian*</label>
@@ -103,8 +103,8 @@
 							<input id="qty" class="form-control" type="number" name="qty" required>
 						</div>
 						<div class="mb-3">
-							<label for="">Tanggal Kadaluarsa*</label>
-							<input id="expired_date" class="form-control" type="date" name="expired_date" required>
+							<label for="">Tanggal Kadaluarsa</label>
+							<input id="expired_date" class="form-control" type="date" name="expired_date">
 						</div>
 					</div>
 					<div class="modal-footer">

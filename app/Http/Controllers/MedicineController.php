@@ -30,7 +30,7 @@ class MedicineController extends Controller
             'name'          => 'required|unique:medicines',
             'qty'           => 'required',
             'unit'          => 'required',
-            'expired_date'  => 'required',
+            // 'expired_date'  => 'required',
             'category'      => 'required',
         ]);
 

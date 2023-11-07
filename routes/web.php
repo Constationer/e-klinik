@@ -155,7 +155,7 @@ Route::controller(DashboardController::class)->group(function () {
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
-                    $query->where('checks.kolesterol', '>', 239);
+                    $query->where('checks.kolesterol', '>', 200);
                     // ->orWhere('checks.kolesterol', '<', 200);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
@@ -167,8 +167,8 @@ Route::controller(DashboardController::class)->group(function () {
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
-                    $query->where('checks.asam_urat', '>', 6.0)
-                        ->orWhere('checks.asam_urat', '<', 2.4);
+                    $query->where('checks.asam_urat', '>', 7.0);
+                        // ->orWhere('checks.asam_urat', '<', 2.4);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
@@ -179,8 +179,8 @@ Route::controller(DashboardController::class)->group(function () {
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
-                    $query->whereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) > 120")
-                        ->orWhereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) < 90");
+                    $query->whereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) > 130");
+                        // ->orWhereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) < 90");
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
@@ -212,7 +212,7 @@ Route::controller(DashboardController::class)->group(function () {
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
-                    $query->where('checks.kolesterol', '>', 239);
+                    $query->where('checks.kolesterol', '>', 200);
                     // ->orWhere('checks.kolesterol', '<', 200);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
@@ -224,8 +224,8 @@ Route::controller(DashboardController::class)->group(function () {
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
-                    $query->where('checks.asam_urat', '>', 6.0)
-                        ->orWhere('checks.asam_urat', '<', 2.4);
+                    $query->where('checks.asam_urat', '>', 7.0);
+                        // ->orWhere('checks.asam_urat', '<', 2.4);
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');
@@ -236,8 +236,8 @@ Route::controller(DashboardController::class)->group(function () {
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
                 ->where('checks.check_type', 'Periksa')
                 ->where(function ($query) {
-                    $query->whereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) > 120")
-                        ->orWhereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) < 90");
+                    $query->whereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) > 130");
+                        // ->orWhereRaw("SUBSTRING_INDEX(checks.tekanan, '/', 1) < 90");
                 })
                 ->join(DB::raw('(SELECT employee_id, MAX(created_at) AS max_created_at FROM checks GROUP BY employee_id) latest_checks'), function ($join) {
                     $join->on('checks.employee_id', '=', 'latest_checks.employee_id');

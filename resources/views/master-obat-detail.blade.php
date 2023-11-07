@@ -68,8 +68,8 @@
                                 <input id="qty" class="form-control" type="number" name="qty" required>
                             </div>
                             <div class="mb-3">
-                                <label for="">Tanggal Kadaluarsa*</label>
-                                <input id="expired_date" class="form-control" type="date" name="expired_date" required>
+                                <label for="">Tanggal Kadaluarsa</label>
+                                <input id="expired_date" class="form-control" type="date" name="expired_date" >
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -100,7 +100,7 @@
 
     function get_datagrid() {
         $('#dg').datagrid({
-            url: "/master-obat-detail-data/?medicine_id="+{{$medicine_id}},
+            url: "{{ route('master_obat_detail_data') }}/?medicine_id="+{{$medicine_id}},
             method: 'get',
             rownumbers: true,
             singleSelect: true,

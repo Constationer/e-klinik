@@ -44,7 +44,7 @@
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                             <div class="d-flex justify-content-center py-4">
-                                <a href="/login" class="logo d-flex align-items-center w-auto">
+                                <a href="login" class="logo d-flex align-items-center w-auto">
                                     <img src="assets/img/{{ $logo_name }}" alt=""
                                         style="max-height: {{ $logo_width }}; width:{{ $logo_width }}">
                                 </a>
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-info w-100 mt-3" type="submit">Submit</button>
-                                            <p class="text-center"><a href="/">Kembali ke halaman
+                                            <p class="text-center"><a href="{{url('')}}">Kembali ke halaman
                                                     utama</a>
                                             </p>
                                         </div>

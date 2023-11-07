@@ -68,7 +68,7 @@
             employee_id = 0;
         }
 
-        window.open("/laporan-kunjungan-pasien-export/"+start_date+'/'+end_date+'/'+doctor_id+'/'+employee_id, "_blank");
+        window.open("laporan-kunjungan-pasien-export/"+start_date+'/'+end_date+'/'+doctor_id+'/'+employee_id, "_blank");
     });
 
 </script>

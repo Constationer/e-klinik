@@ -49,7 +49,7 @@
             return false;
         }
 
-        window.open("/pdf-medicine-per-item/"+year+'/'+medicine_code, "_blank");
+        window.open("pdf-medicine-per-item/"+year+'/'+medicine_code, "_blank");
     });
 
 </script>

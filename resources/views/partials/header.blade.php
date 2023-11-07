@@ -1,8 +1,8 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-      <a href="/dashboard" class="logo d-flex align-items-center">
-        <img src="/assets/img/logo.png" alt="">
+      <a href="dashboard" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block text-sm">
           Yankes Pakaroso
         </span>
@@ -42,7 +42,7 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="/pengaturan-user">
+              <a class="dropdown-item d-flex align-items-center" href="pengaturan-user">
                 <i class="bi bi-gear"></i>
                 <span>Pengaturan Akun</span>
               </a>
@@ -51,7 +51,7 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="/logout">
+              <a class="dropdown-item d-flex align-items-center" href="logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Logout</span>
               </a>
