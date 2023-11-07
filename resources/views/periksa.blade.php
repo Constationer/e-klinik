@@ -655,16 +655,18 @@
             });
 
             function pdf_rm() {
-
                 var employee_id = $('#pdf_employee_id').val();
 
                 if (employee_id == '') {
                     alert('Pilih nama pegawai');
                     return false;
                 } else {
-                    window.open("/pdf-check/rm/" + employee_id);
+                    var url = @json(url('/pdf-check/rm/')) + '/' + employee_id;
+                    // Now, you can use the 'url' variable in your JavaScript code.
+                    // For example, you can use it in a JavaScript function or for opening a new window.
+                    // Here's how to open a new window with the URL:
+                    window.open(url);
                 }
-
             }
         </script>
 

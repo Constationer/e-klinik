@@ -6,7 +6,7 @@
         @foreach ($menus as $menu)
             @if (App\Models\Menu::menuSub($menu->id)->count() == 0)
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ $menu->link }}">
+                    <a class="nav-link " href="{{ url($menu->link) }}">
                         <i class="{{ $menu->icon }}"></i>
                         <span> {{ $menu->name }} </span>
                     </a>
@@ -23,7 +23,7 @@
                     <ul id="{{ $menu->name }}-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                         @foreach (App\Models\Menu::menuSub($menu->id)->get() as $menu_sub)
                             <li>
-                                <a href="{{ $menu_sub->link }}">
+                                <a href="{{ url($menu_sub->link) }}">
                                     <i class="bi bi-circle"></i>
                                     <span> {{ $menu_sub->name }} </span>
                                 </a>
