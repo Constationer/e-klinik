@@ -3,47 +3,39 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-		@foreach( $menus as $menu ) 
-
+        @foreach ($menus as $menu)
             @if (App\Models\Menu::menuSub($menu->id)->count() == 0)
-				
-				<li class="nav-item">
-					<a class="nav-link " href="{{$menu->link}}">
-						<i class="{{$menu->icon}}"></i>
-						<span> {{$menu->name}} </span>
-					</a>
-				</li>
-			@else
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ url($menu->link) }}">
+                        <i class="{{ $menu->icon }}"></i>
+                        <span> {{ $menu->name }} </span>
+                    </a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link collapsed" data-bs-target="#{{ $menu->name }}-nav" data-bs-toggle="collapse"
+                        href="#">
+                        <i class="{{ $menu->icon }}"></i>
+                        <span> {{ $menu->name }} </span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
 
-			<li class="nav-item">
-				<a
-					class="nav-link collapsed"
-					data-bs-target="#{{$menu->name}}-nav"
-					data-bs-toggle="collapse"
-					href="#">
-					<i class="{{$menu->icon}}"></i>
-					<span> {{$menu->name}} </span>
-					<i class="bi bi-chevron-down ms-auto"></i>
-				</a>
+                    <ul id="{{ $menu->name }}-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                        @foreach (App\Models\Menu::menuSub($menu->id)->get() as $menu_sub)
+                            <li>
+                                <a href="{{ url($menu_sub->link) }}">
+                                    <i class="bi bi-circle"></i>
+                                    <span> {{ $menu_sub->name }} </span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
 
-				<ul id="{{$menu->name}}-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-					@foreach ( App\Models\Menu::menuSub($menu->id)->get() as $menu_sub )
-					<li>
-						<a href="{{ $menu_sub->link }}">
-							<i class="bi bi-circle"></i>
-							<span> {{ $menu_sub->name }} </span>
-						</a>
-					</li>
-					@endforeach
-				</ul>
+                </li>
+            @endif
+        @endforeach
 
-			</li>
 
-			@endif
-
-		@endforeach
-
-		
 
         {{-- 
         <!-- End Dashboard Nav -->
