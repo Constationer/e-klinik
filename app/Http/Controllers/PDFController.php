@@ -38,6 +38,7 @@ class PDFController extends Controller
 
             $check = Check::select(
                 'checks.*',
+                'doctors.name as doctors_name',
                 'employees.name as employee_name',
                 'gender',
                 'address',
@@ -46,6 +47,7 @@ class PDFController extends Controller
                 'work_unit'
             )
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->join('doctors', 'doctors.id', '=', 'checks.doctor_id')
                 ->where('checks.code', $request->code)
                 ->first();
 
@@ -59,6 +61,7 @@ class PDFController extends Controller
             // check
             $check = Check::select(
                 'checks.*',
+                'doctors.name as doctors_name',
                 'employees.name as employee_name',
                 'employees.nip as employee_nip',
                 'gender',
@@ -68,6 +71,7 @@ class PDFController extends Controller
                 'work_unit'
             )
                 ->join('employees', 'employees.id', '=', 'checks.employee_id')
+                ->join('doctors', 'doctors.id', '=', 'checks.doctor_id')
                 ->where('employees.akses', $request->code)
                 ->where('checks.check_type', 'Periksa')
                 ->get();

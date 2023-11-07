@@ -129,7 +129,7 @@
                 <table border="0">
                     <tr>
                         <td><b>Nama Dokter</b></td>
-                        <td>: {{ $check->doctor_id }}</td>
+                        <td>: {{ $check->doctors_name }}</td>
                     </tr>
                     <tr>
                         <td><b>Jenis Periksa</b></td>
@@ -314,7 +314,7 @@
                     <table border="0">
                         <tr>
                             <td><b>Nama Dokter</b></td>
-                            <td>: {{ $detail->doctor_id }}</td>
+                            <td>: {{ $detail->doctors_name }}</td>
                         </tr>
                         <tr>
                             <td><b>Jenis Periksa</b></td>
